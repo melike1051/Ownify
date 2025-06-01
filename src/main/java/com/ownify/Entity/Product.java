@@ -29,7 +29,9 @@ public class Product {
     private String description;
     
     @Column(nullable = false)
-    private BigDecimal price;  private String brand;
+    private BigDecimal price;
+    
+    private String brand; // ✅ Düzeltildi - satır sonlandırıcı eklendi
     
     @Column(name = "image_url")
     private String imageUrl;
@@ -47,6 +49,7 @@ public class Product {
     
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Wishlist> wishlistItems;
+    
     // Constructors, Getters and Setters
     public Product() {}
     
@@ -67,7 +70,8 @@ public class Product {
     public void setTitle(String title) { this.title = title; }
     
     public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; } 
+    public void setDescription(String description) { this.description = description; }
+    
     public BigDecimal getPrice() { return price; }
     public void setPrice(BigDecimal price) { this.price = price; }
     

@@ -27,13 +27,17 @@ public class Wishlist {
     private Product product;
     
     @Column(name = "created_at")
-    private LocalDateTime createdAt = LocalDateTime.now(); public Wishlist() {}
+    private LocalDateTime createdAt = LocalDateTime.now();
+    
+    // ✅ Constructors eklendi
+    public Wishlist() {}
     
     public Wishlist(User user, Product product) {
         this.user = user;
         this.product = product;
     }
     
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     

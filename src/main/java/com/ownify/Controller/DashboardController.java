@@ -13,10 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession; // ✅ Doğru import - javax yerine jakarta
 import java.util.List;
 
-@RestController
+@Controller // ✅ @RestController yerine @Controller
 public class DashboardController {
     
     @Autowired
