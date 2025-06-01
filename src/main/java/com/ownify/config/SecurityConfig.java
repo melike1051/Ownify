@@ -20,17 +20,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf().disable()
-            .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/", "/login", "/register", "/reset-password", 
-                                "/about", "/faqs", "/customer-support", 
-                                "/social/**", "/ads/**", "/api/**",
-                                "/css/**", "/js/**", "/images/**", "/static/**").permitAll()
-                .anyRequest().authenticated()
-            )
-            .formLogin().disable()
-            .logout().disable();
-        
+                .csrf(csrf -> csrf
+                        .ignoringRequestMatchers("/ownify-chat/**", "/ownify/**")
+                )
+                .authorizeHttpRequests(authz -> authz
+                        .anyRequest().permitAll()
+                )
+                .formLogin().disable()
+                .headers(headers -> headers.frameOptions().sameOrigin())
+                .logout().disable();
+
         return http.build();
     }
 }

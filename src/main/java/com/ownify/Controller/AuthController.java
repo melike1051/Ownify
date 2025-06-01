@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
-@Controller
+@RestController
 public class AuthController {
     
     @Autowired

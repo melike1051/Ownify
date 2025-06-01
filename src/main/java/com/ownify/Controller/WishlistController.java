@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller
+@RestController
 public class WishlistController {
     
     @Autowired
