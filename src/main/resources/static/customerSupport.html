@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Ownify</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Ana CSS dosyanızı buraya bağlayın -->
+   <link rel="stylesheet" href="c.css"> 
+    <style>
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+       
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e3c72;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .breadcrumb {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+            min-height: 600px;
+        }
+
+        .support-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .support-title {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .support-heading {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .support-image {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .support-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Services Grid */
+        .services-section {
+            margin: 60px 0;
+        }
+
+        .services-heading {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: #ff6b35;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .service-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Popular Topics */
+        .topics-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin: 40px 0;
+        }
+
+        .topics-heading {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .topic-column h4 {
+            color: #1e3c72;
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .topic-item {
+            padding: 8px 0;
+            color: #666;
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .topic-item:hover {
+            color: #ff6b35;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .contact-icon.phone {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .contact-icon.email {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .contact-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .contact-btn.secondary {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .contact-btn.secondary:hover {
+            box-shadow: 0 5px 15px rgba(67, 233, 123, 0.3);
+        }
+  /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content container">
+            <div class="welcome-text">Welcome to Ownify Online marketplace platform.</div>
+            <div class="follow-links">
+                <span>Follow us</span>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+              
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content container">
+            <div class="logo">
+                <div class="logo-circle">
+                    <span class="logo-icon">O</span>
+                </div>
+                <span class="logo-text">Ownify</span>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search for products...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="header-actions">
+                <div class="header-icons">
+                    <i class="fas fa-heart" onclick="toggleWishlist()"></i>
+                    <i class="fas fa-shopping-cart" onclick="viewCart()"></i>
+                    <i class="fas fa-user" onclick="viewProfile()"></i>
+
+                </div>
+                <button href="signin.html" class="login-btn">Log In</button>
+                <button href="signup.html" class="signup-btn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-section">
+        <div class="header-bottom container">
+            <div class="nav-menu">
+                <div class="dropdown">
+                    <button class="dropdown-btn">
+                        <i class="fas fa-bars"></i>
+                        All Category
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="category-item">
+                            <a href="#" class="main-category">Computer & Laptop</a>
+                            <div class="subcategory-content">
+                                <a href="#" class="subcategory">All</a>
+                                <a href="#" class="subcategory">Gaming Laptops</a>
+                                <a href="#" class="subcategory">Business Laptops</a>
+                                <a href="#" class="subcategory">MacBook</a>
+                                <a href="#" class="subcategory">Desktop PC</a>
+                                <a href="#" class="subcategory">Gaming PC</a>
+                                <a href="#" class="subcategory">Accessories</a>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="main-category">Car</a>
+                            <div class="subcategory-content">
+                                <a href="#" class="subcategory">All</a>
+                                <a href="#" class="subcategory">Sedan</a>
+                                <a href="#" class="subcategory">SUV</a>
+                                <a href="#" class="subcategory">Hatchback</a>
+                                <a href="#" class="subcategory">Sports Car</a>
+                                <a href="#" class="subcategory">Electric</a>
+                                <a href="#" class="subcategory">Used Cars</a>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="main-category">SmartPhone</a>
+                            <div class="subcategory-content">
+                                <a href="#" class="subcategory">All</a>
+                                <a href="#" class="subcategory">iPhone</a>
+                                <a href="#" class="subcategory">Samsung</a>
+                                <a href="#" class="subcategory">Realme</a>
+                                <a href="#" class="subcategory">Xiaomi</a>
+                                <a href="#" class="subcategory">Oppo</a>
+                                <a href="#" class="subcategory">Vivo</a>
+                                <a href="#" class="subcategory">OnePlus</a>
+                                <a href="#" class="subcategory">Huawei</a>
+                                <a href="#" class="subcategory">Infinix</a>
+                                <a href="#" class="subcategory">Other</a>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="main-category">TV & Homes Appliances</a>
+                            <div class="subcategory-content">
+                                <a href="#" class="subcategory">All</a>
+                                <a href="#" class="subcategory">Smart TV</a>
+                                <a href="#" class="subcategory">LED TV</a>
+                                <a href="#" class="subcategory">Refrigerator</a>
+                                <a href="#" class="subcategory">Washing Machine</a>
+                                <a href="#" class="subcategory">Air Conditioner</a>
+                                <a href="#" class="subcategory">Kitchen Appliances</a>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="main-category">Electronic Accessories</a>
+                            <div class="subcategory-content">
+                                <a href="#" class="subcategory">All</a>
+                                <a href="#" class="subcategory">Headphones</a>
+                                <a href="#" class="subcategory">Speakers</a>
+                                <a href="#" class="subcategory">Chargers</a>
+                                <a href="#" class="subcategory">Cases & Covers</a>
+                                <a href="#" class="subcategory">Power Banks</a>
+                                <a href="#" class="subcategory">Cables</a>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="main-category">House</a>
+                            <div class="subcategory-content">
+                                <a href="#" class="subcategory">All</a>
+                                <a href="#" class="subcategory">Apartment</a>
+                                <a href="#" class="subcategory">Villa</a>
+                                <a href="#" class="subcategory">Townhouse</a>
+                                <a href="#" class="subcategory">Studio</a>
+                                <a href="#" class="subcategory">Penthouse</a>
+                                <a href="#" class="subcategory">Commercial</a>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="main-category">Land</a>
+                            <div class="subcategory-content">
+                                <a href="#" class="subcategory">All</a>
+                                <a href="#" class="subcategory">Residential Plot</a>
+                                <a href="#" class="subcategory">Commercial Plot</a>
+                                <a href="#" class="subcategory">Agricultural Land</a>
+                                <a href="#" class="subcategory">Industrial Land</a>
+                                <a href="#" class="subcategory">Farmhouse</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="customerSupport.html" class="nav-item">
+                    <i class="fas fa-headphones"></i>
+                    Customer Support
+                </a>
+                  
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-question-circle"></i>
+                        Need Help
+                    </a>
+                
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 202 555 0106</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#"><i class="fas fa-home"></i> Home</a>
+                <span class="breadcrumb-separator">></span>
+                <a href="#">Customer</a>
+                <span class="breadcrumb-separator">></span>
+                <span class="breadcrumb-current"> Support</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Support Header -->
+            <div class="support-header">
+                <div class="support-title">24/7 Support</div>
+                <h1 class="support-heading">How we can help you!</h1>
+                <div class="support-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Customer Support Representative" />
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <div class="services-section">
+                <h2 class="services-heading">What can we assist you with today?</h2>
+                <div class="services-grid">
+                    <div class="service-card" onclick="openService('track-order')">
+                        <div class="service-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="service-title">Track Order</div>
+                        <div class="service-description">Check your order status and view shipping information in real-time</div>
+                    </div>
+                    
+                    <div class="service-card" onclick="openService('return')">
+                        <div class="service-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="service-title">Item Returns</div>
+                        <div class="service-description">Start your return process quickly and easily with our hassle-free system</div>
+                    </div>
+                    
+                    <div class="service-card" onclick="openService('payment')">
+                        <div class="service-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="service-title">Payment Options</div>
+                        <div class="service-description">Get support for all payment-related questions and issues</div>
+                    </div>
+                    
+                    <div class="service-card" onclick="openService('account')">
+                        <div class="service-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="service-title">User Account</div>
+                        <div class="service-description">Manage your account settings and update your profile information</div>
+                    </div>
+                    
+                    <div class="service-card" onclick="openService('technical')">
+                        <div class="service-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="service-title">Shipping & Billing</div>
+                        <div class="service-description">Get help with shipping options, billing questions, and delivery issues</div>
+                    </div>
+                    
+                    <div class="service-card" onclick="openService('other')">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="service-title">Get in Touch</div>
+                        <div class="service-description">Contact our support team for any other questions or concerns</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Topics -->
+            <div class="topics-section">
+                <h3 class="topics-heading">Popular Topics</h3>
+                <div class="topics-grid">
+                    <div class="topic-column">
+                        <h4>How long does it take to get my order?</h4>
+                        <div class="topic-item">When will my order be shipped?</div>
+                        <div class="topic-item">How do I recover my sales transaction?</div>
+                        <div class="topic-item">How do I return an item?</div>
+                        <div class="topic-item">How is my personal security guaranteed?</div>
+                    </div>
+                    
+                    <div class="topic-column">
+                        <h4>What are the Delivery Terms?</h4>
+                        <div class="topic-item">What is a Recovery Card Statement charge?</div>
+                        <div class="topic-item">How do I know if my order went through?</div>
+                        <div class="topic-item">Why is your support not working to me?</div>
+                        <div class="topic-item">Are there any special deals for families?</div>
+                    </div>
+                    
+                    <div class="topic-column">
+                        <h4>Do you have a Deal Community?</h4>
+                        <div class="topic-item">How can I sign up for the Loyalty Community?</div>
+                        <div class="topic-item">Do you have different price options?</div>
+                        <div class="topic-item">How can I pay in advance for services?</div>
+                        <div class="topic-item">How do I create a business account?</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <div class="contact-card">
+                    <div class="contact-icon phone">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-title">Call Us</div>
+                    <div class="contact-info">
+                        Get instant help from our live support line<br>
+                        <strong>+1 202 555 0106</strong><br>
+                        Monday - Friday: 09:00 AM - 06:00 PM
+                    </div>
+                    <button class="contact-btn" onclick="callSupport()">CALL NOW</button>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-title">Our Office</div>
+                    <div class="contact-info">
+                        Send us an email for detailed questions<br>
+                        <strong>Support@Ownify.com</strong><br>
+                        24-hour response guarantee
+                    </div>
+                    <button class="contact-btn secondary" onclick="sendEmail()">SEND MESSAGE</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+      <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <div class="logo-circle">
+                            <span class="logo-icon">O</span>
+                        </div>
+                        <span class="logo-text">Ownify</span>
+                    </div>
+                    <div class="footer-contact">
+                        <p><strong>VISIT OUR STORE</strong></p>
+                        <p>2548 Brooke Street</p>
+                        <p>Colorado, New York 80202</p>
+                        <p><strong>+1 202 555 0106</strong></p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>TOP CATEGORY</h4>
+                        <ul>
+                            <li><a href="#">Computer</a></li>
+                            <li><a href="#">Laptop</a></li>
+                            <li><a href="#">Camera</a></li>
+                            <li><a href="#">Car</a></li>
+                            <li><a href="#">Electronics</a></li>
+                            <li><a href="#">TV & Home Appliances</a></li>
+                        </ul>
+                        <a href="#" class="browse-all">Browse all categories >></a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>QUICK LINKS</h4>
+                        <ul>
+                            <li><a href="#">Shop</a></li>
+                            <li><a href="#">Shopping Cart</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Compare</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Customer Help</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Copyright © Ownify Template All rights reserved. Developed by Templateseller.</p>
+            </div>
+        </div>
+    </footer> 
+    <script>
+        // Service card interactions
+        function openService(serviceType) {
+            const services = {
+                'track-order': 'Redirecting to order tracking page...',
+                'return': 'Opening return request form...',
+                'payment': 'Redirecting to payment support page...',
+                'account': 'Redirecting to account settings page...',
+                'technical': 'Opening technical support form...',
+                'other': 'Opening general support form...'
+            };
+            
+            alert(services[serviceType] || 'Loading page...');
+        }
+
+        // Contact functions
+        function callSupport() {
+            if (confirm('Are you sure you want to call our support line?')) {
+                window.open('tel:+12025550106', '_self');
+            }
+        }
+
+        function sendEmail() {
+            const subject = encodeURIComponent('Ownify Customer Support Request');
+            const body = encodeURIComponent('Hello,\n\nI need help with the following issue:\n\n[Please describe your question in detail]\n\nThank you.');
+            window.open(`mailto:support@ownify.com?subject=${subject}&body=${body}`);
+        }
+
+        // Topic item interactions
+        document.querySelectorAll('.topic-item').forEach(item => {
+            item.addEventListener('click', function() {
+                alert(`Redirecting to detailed information page about "${this.textContent}"...`);
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation for service cards
+        window.addEventListener('load', function() {
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Initialize cards with hidden state
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+        });
+    </script>
+
+    </body>
+    </html>
