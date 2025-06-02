@@ -58,3 +58,4 @@ build/
 hs_err_pid*
 replay_pid*
 >>>>>>> 41acf7e95d7e756ca749ea16838710977c2781d8
+/.apt_generated_tests/
